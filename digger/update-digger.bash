@@ -7,7 +7,7 @@ do
     if [ "`grep $arg downloaded.log`" == "" ]
     then
 	wget "$arg" -q -O cur.html
-	img=`grep "http://www.diggercomic.com/comics/.*gif" cur.html --only-matching`
+	img=`grep "http://www.diggercomic.com/comics/.*[gif|jpg]" cur.html --only-matching`
 	wget -q "$img"
 	echo $arg >> downloaded.log
 	rm cur.html
